@@ -2,9 +2,10 @@ package Lessons;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Box<T extends Fruit> {
-    private ArrayList<T> items;
+    private List<T> items;
 
     public Box(T... items) {
         this.items = new ArrayList<T>(Arrays.asList(items));
@@ -18,7 +19,7 @@ public class Box<T extends Fruit> {
         for (T item: items) this.items.remove(item);
     }
 
-    public ArrayList<T> getItems() {
+    public List<T> getItems() {
         return new ArrayList<T>(items);
     }
 
@@ -33,8 +34,9 @@ public class Box<T extends Fruit> {
         return weight;
     }
 
-    public boolean compare(Box box) {
-        return this.getWeight() == box.getWeight();
+    public boolean compare(Box<?> box) {
+//        return this.getWeight() == box.getWeight();
+        return Math.abs(this.getWeight()- box.getWeight()) < Constants.EPSILON;
     }
 
     public void transfer(Box<? super T> box) {

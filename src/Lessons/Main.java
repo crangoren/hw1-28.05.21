@@ -22,7 +22,7 @@ public class Main {
 
         // task 2
 
-        ArrayList<String> arrList = toArrayList(strArr);
+        List<String> arrList = toArrayList(strArr);
 //        System.out.println(arrList);
 
         // task 3
@@ -70,7 +70,7 @@ public class Main {
         array[index2] = temp;
     }
 
-    public static <T> ArrayList<T> toArrayList(T[] arr) {
+    public static <T> List<T> toArrayList(T[] arr) {
         return new ArrayList<T>(Arrays.asList(arr));
 
     }
